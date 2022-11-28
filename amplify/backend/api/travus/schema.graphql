@@ -1,0 +1,109 @@
+type User @model {
+  id: ID!
+  name: String
+  phone: String!
+  email: String
+  location: String
+  image: String
+  posts: [Post] @connection(name: "UserPosts")
+  userReactions: [UserReaction] @connection(name: "UserUserReactions")
+  comments: [Comment] @connection(name: "UserComments")
+  commentReactions: [CommentReaction] @connection(name: "UserCommentReactions")
+  commentReplys: [CommentReply] @connection(name: "UserCommentReplys")
+  businesses: [Business] @connection(name: "UserBusinesses")
+}
+
+type City @model {
+  id: ID!
+  name: String!
+  geo_coordinate: Geocoordinate!
+  posts: [Post] @connection(name: "CityPosts")
+}
+
+type Geocoordinate {
+  latitude: Float!
+  longitude: Float!
+}
+
+type Post @model {
+  id: ID!
+  user: User @connection(name: "UserPosts")
+  city: City @connection(name: "CityPosts")
+  message: String!
+  links: [String]
+  tags: [String]
+  medias: [String]
+  userReactions: [UserReaction] @connection(name: "PostUserReactions")
+  comments: [Comment] @connection(name: "PostComments")
+  business: Business @connection(name: "BusinessPosts")
+}
+
+type UserReaction @model {
+  id: ID!
+  user: User @connection(name: "UserUserReactions")
+  post: Post @connection(name: "PostUserReactions")
+  business: Business @connection(name: "BusinessUserReactions")
+  reactionType: ReactionType,
+  reactionTarget: ReactionTarget
+}
+
+enum ReactionTarget {
+  POST
+  BUSINESS
+}
+
+enum ReactionType {
+  LIKE
+  DISLIKE
+  HEART
+  FLAG
+}
+
+type Comment @model {
+  id: ID!
+  message: String!
+  user: User @connection(name: "UserComments")
+  post: Post @connection(name: "PostComments")
+  commentReactions: [CommentReaction] @connection(name: "CommentCommentReactions")
+  commentReplys: [CommentReply] @connection(name: "CommentCommentReplys")
+}
+
+type CommentReaction @model {
+  id: ID!
+  reactionType: ReactionType
+  user: User @connection(name: "UserCommentReactions")
+  comment: Comment @connection(name: "CommentCommentReactions")
+}
+
+type CommentReply @model {
+  id: ID!
+  message: String
+  user: User @connection(name: "UserCommentReplys")
+  comment: Comment @connection(name: "CommentCommentReplys")
+}
+
+type Business @model {
+  id: ID!
+  name: String
+  mentionName: String
+  description: String
+  tags: [String]
+  established: Boolean
+  type: String
+  hours: Int
+  pricing: Int
+  verifiedStatus: Boolean
+  reactions: [UserReaction] @connection(name: "BusinessUserReactions")
+  geocoordinates: [Geocoordinate]
+  address: String
+  phone: String
+  email: String
+  posts: [Post] @connection(name: "BusinessPosts")
+  website: String
+  ownerName: String
+  cleanlinessScore: Int
+  safetyScore: Int
+  inclusionScore: Int
+  experienceScore: Int
+  user: User @connection(name: "UserBusinesses")
+}

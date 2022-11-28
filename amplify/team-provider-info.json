@@ -1,0 +1,38 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-travus-dev-183052-authRole",
+            "UnauthRoleArn": "arn:aws:iam::290891619542:role/amplify-travus-dev-183052-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::290891619542:role/amplify-travus-dev-183052-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-travus-dev-183052-deployment",
+            "UnauthRoleName": "amplify-travus-dev-183052-unauthRole",
+            "StackName": "amplify-travus-dev-183052",
+            "StackId": "arn:aws:cloudformation:us-east-2:290891619542:stack/amplify-travus-dev-183052/7d7c2b50-d834-11ea-9e00-0618bcd9a382",
+            "AmplifyAppId": "d1k8pz447k8xly"
+        },
+        "categories": {
+            "auth": {
+                "travuscbbc4d4b": {},
+                "travus570cc0ac": {
+                    "hostedUIProviderCreds": "[]"
+                },
+                "travus3e54aeb1": {},
+                "travusb36ba8cd": {},
+                "travus69c7db52": {},
+                "travus1e8cf688": {},
+                "travusauth": {},
+                "travus7397eaa9": {}
+            },
+            "hosting": {},
+            "function": {
+                "travusauthCreateAuthChallenge": {
+                    "CHALLENGEANSWER": ""
+                },
+                "travusauthDefineAuthChallenge": {},
+                "travusauthPreSignup": {},
+                "travusauthVerifyAuthChallengeResponse": {}
+            }
+        }
+    }
+}

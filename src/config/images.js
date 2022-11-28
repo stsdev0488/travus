@@ -1,0 +1,14 @@
+export const logo = require('assets/images/logo.png');
+export const avatar1 = require('assets/images/avatar1.jpeg');
+export const avatar2 = require('assets/images/avatar2.jpeg');
+export const avatar3 = require('assets/images/avatar3.jpg');
+export const city1 = require('assets/images/cities/city1.jpeg');
+export const city2 = require('assets/images/cities/city2.jpg');
+export const city3 = require('assets/images/cities/city3.jpeg');
+export const city4 = require('assets/images/cities/city4.jpg');
+export const city5 = require('assets/images/cities/city5.jpeg');
+export const saveIcon = require('assets/images/save.png');
+export const defaultAvatar = require('assets/images/default_user.png');
+export const rating = require('assets/images/rating.png');
+export const ratingOutline = require('assets/images/rating-outline.png');
+export const defaultBusiness = require('assets/images/business.png');
